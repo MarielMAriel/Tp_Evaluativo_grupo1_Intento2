@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head  th:insert="/layout/head::head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="/layout/header::header"></header>
+	<br>
+	<p class="h4">Edición Candidato</p>
+	<br>
+<form th:action="@{/modificar}" th:object="${candidato}" method="post">
+  <div class="mb-3">
+    <div class="mb-3">
+    <input th:field="*{codigo}"  type="hidden">
+    <label for="codigo" class="form-label">CODIGO</label>
+    <input  th:value="${codigo}" type="number" class="form-control" id="codigo" disabled="disabled">
+  </div>
+    <label for="nombre" class="form-label">NOMBRE</label>
+    <input th:field="*{nombre}"  type="text" class="form-control" id="nombre" >
+  </div>
+  <div class="mb-3">
+    <label for="genero" class="form-label">GENERO</label>
+    <input th:field="*{genero}"   type="text" class="form-control" id="genero">
+  </div>
+  <div class="mb-3">
+  <label for="descripcion" class="form-label">DESCRIPCION</label>
+  <textarea th:field="*{descripcion}" class="form-control" id="descripcion" rows="3"></textarea>
+</div>
+  <button type="submit" class="btn btn-primary">REGISTRAR</button>
+</form>
+</body>
+</html>

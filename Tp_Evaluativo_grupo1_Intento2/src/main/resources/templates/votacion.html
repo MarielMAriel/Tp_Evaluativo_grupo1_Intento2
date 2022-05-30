@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head th:insert="/layout/head::head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:insert="/layout/header::header"> </header>
+<h1>VOTACION</h1>
+		<div class="container">
+			<div class="row">
+				<!-- Cards -->
+				<div class="row">
+				<!-- CARDS -->
+				<div th:each="candidato:${candidatos}" class="col-3">
+					<div class="card" style="width:18rem">
+						  <div class="card-body">
+						    <h5 th:text="${candidato.nombre}" class="card-title"></h5>
+						    <h5 th:text="${candidato.genero}" class="card-title"></h5>
+						    <p th:text="${candidato.descripcion}" class="card-text"></p>
+						    <a th:href="@{/usuario/resp?id={id}(id=${usuario.codigo})}" class="btn btn-primary">elegir</a>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
